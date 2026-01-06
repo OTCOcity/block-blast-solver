@@ -1,4 +1,4 @@
-export async function takeScreenshotBlob(adb) {
+export async function getScreenBlob(adb) {
     const sp = adb.subprocess.shellProtocol;
     if (!sp) throw new Error("Shell protocol not supported on this device"); // :contentReference[oaicite:2]{index=2}
 

@@ -1,0 +1,1 @@
+export const SAME_COLOR_TOLERANCE = 30;

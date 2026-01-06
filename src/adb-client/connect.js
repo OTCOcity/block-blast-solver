@@ -1,5 +1,8 @@
 import {AdbDaemonWebUsbDeviceManager} from "@yume-chan/adb-daemon-webusb";
 import {Adb, AdbDaemonTransport} from "@yume-chan/adb";
+import AdbWebCredentialStore from "@yume-chan/adb-credential-web";
+
+const credentialStore = new AdbWebCredentialStore();
 
 export async function connectAdb() {
     // requestDevice обязан быть по клику (user activation)

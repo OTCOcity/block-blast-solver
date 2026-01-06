@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Blocks</title>
     <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/temp.css">
 </head>
 
 <body>
@@ -13,22 +14,33 @@
         <div class="phone" id="phone">
             <div class="notch"></div>
             <div class="phone__hint">
-                Ждём подключения телефон
-                <br/>
-                (подсоедините его к компьютеру)
+                <div class="phone-text" id="phone-loading-text" aria-label="Loading">
+                    Ждём подключения телефон
+                    <br/>
+                    (подсоедините его к компьютеру)
+                </div>
+                <div class="phone-spinner" id="phone-loading-spinner" aria-label="Loading" style="display: none;"></div>
             </div>
+
             <!-- позже сюда можно вставить <canvas> или <img> -->
         </div>
 
-        <button class="btn" id="startBtn" type="button">Поехали</button>
+        <button class="btn" id="start-button" type="button">Поехали</button>
 
-        <div class="caption">
-            Подключи Android по USB (USB debugging), затем нажми Start.
+        <div class="caption" id="hint">
+            Подключи Android по USB (USB debugging), затем нажми «Поехали».
         </div>
     </div>
 </div>
 
+
+<canvas class="canvas" id="canvas"></canvas>
+<canvas class="canvas" id="canvas-elements"></canvas>
+<div class="btn-screen" id="btn-screen">Screen</div>
+
+
 <script type="module" src="/src/main.js"></script>
+<script type="module" src="/src/temp.js"></script>
 </body>
 </html>
 
