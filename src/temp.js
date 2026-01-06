@@ -1,6 +1,6 @@
 import $ from './utils/dom-selector.js';
 import {fieldGetCellValue} from "./utils/analyze/field-get-cell-value.js";
-import {getFigure} from "./utils/analyze/check-figures/index.js";
+import {getFigure} from "./utils/analyze/get-figure";
 import {rgbAt} from "./utils/canvas/rgb-at.js";
 
 const btnScreen = $("btn-screen");
@@ -15,8 +15,8 @@ const width = 632;
 const height = 632;
 const heightEl = 240;
 
-const fldName = 4;
-const elsName = 3;
+const fldName = 1;
+let elsName = 3;
 
 const img = new Image();
 img.onload = () => {
@@ -34,8 +34,14 @@ img2.onload = () => {
 };
 img2.src = `/temp-images/els/${elsName}.png`;
 
+document.body.ondblclick = () => {
+    elsName++;
+    img2.src = `/temp-images/els/${elsName}.png`;
+    setTimeout(startCalculateElements, 300);
+}
+
 // setTimeout(startCalculateField, 1000);
-setTimeout(startCalculateElements, 1000);
+setTimeout(startCalculateElements, 300);
 
 function startCalculateField() {
     for (let row = 0; row < GRID; row++) {
@@ -48,6 +54,7 @@ function startCalculateField() {
 
 function startCalculateElements() {
     const bgColor = rgbAt(ctxEl, 5, 5);
+    console.log(bgColor)
     for (let i = 1; i < 4; i++) {
         console.log(getFigure(ctxEl, i, bgColor));
     }
