@@ -32,13 +32,14 @@ btnStart.addEventListener("click", async () => {
     }
 });
 
-const SCREENSHOT_INTERVAL = 5000;
+let screenshotInterval = 0;
 function start() {
     setTimeout(async () => {
         await takeScreenshot();
 
         start();
-    }, SCREENSHOT_INTERVAL)
+    }, screenshotInterval);
+    screenshotInterval = 2500;
 }
 
 
