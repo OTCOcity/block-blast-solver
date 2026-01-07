@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Blocks</title>
     <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/image.css">
 </head>
 
 <body>
@@ -14,9 +15,7 @@
             <div class="notch"></div>
             <div class="phone__hint">
                 <div class="phone-text" id="phone-loading-text" aria-label="Loading">
-                    Ждём подключения телефон
-                    <br/>
-                    (подсоедините его к компьютеру)
+                    Выберите изображение
                 </div>
                 <div class="phone-spinner" id="phone-loading-spinner" aria-label="Loading" style="display: none;"></div>
             </div>
@@ -27,19 +26,13 @@
         <button class="btn" id="start-button" type="button">Поехали</button>
 
         <div class="caption" id="hint">
-            Подключи Android по USB (USB debugging), затем нажми «Поехали».
+            <label for="img-num"><input maxlength="2" value="4" class="img-num" id="img-num"></label>
         </div>
     </div>
 </div>
 
-<div class="controls">
-    <div class=btn-control id="btn-screen">Screen</div>
-    <input value="4" id="img-num" type="number">
-    <div class="btn-control" id="btn-img">Image</div>
-</div>
 
-
-<script type="module" src="/src/page-main.js"></script>
+<script type="module" src="/src/page-image.js"></script>
 </body>
 </html>
 

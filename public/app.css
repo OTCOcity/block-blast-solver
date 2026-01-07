@@ -29,6 +29,17 @@ body {
     linear-gradient(135deg, var(--bg0), var(--bg1) 45%, var(--bg2));
 }
 
+
+.canvas {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+
 /* soft grain */
 body::before {
     content: "";
@@ -151,4 +162,37 @@ body::before {
 
 @keyframes phone-spin {
     to { transform: rotate(360deg); }
+}
+
+/** Solver results **/
+#result-overlay {
+    /* сколько времени показывать каждую фигуру */
+    --step: 900ms;
+
+    /* цикл = 3 шага */
+    --cycle: calc(var(--step) * 3);   position: absolute;
+    z-index: 10;
+}
+/* Все фигуры по умолчанию спрятаны */
+.result-overlay .shape-overlay {
+    opacity: 0;
+    visibility: hidden;
+    animation-name: show-by-turn;
+    animation-duration: var(--cycle);
+    animation-timing-function: steps(1, end);
+    animation-iteration-count: infinite;
+}
+
+/* Сдвиги по времени: 1-я сразу, 2-я через step, 3-я через 2*step */
+.result-overlay .shape-overlay:nth-child(1) { animation-delay: calc(var(--step) * 0); }
+.result-overlay .shape-overlay:nth-child(2) { animation-delay: calc(var(--step) * 1); }
+.result-overlay .shape-overlay:nth-child(3) { animation-delay: calc(var(--step) * 2); }
+
+/* В каждый момент времени видна только одна фигура */
+@keyframes show-by-turn {
+    0%   { opacity: 1; visibility: visible; }
+    33.333% { opacity: 1; visibility: visible; }
+
+    33.334% { opacity: 0; visibility: hidden; }
+    100% { opacity: 0; visibility: hidden; }
 }

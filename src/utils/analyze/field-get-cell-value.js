@@ -2,7 +2,10 @@ import {drawPoint} from "../canvas/draw-point.js";
 import {colorDist} from "../canvas/color-dist.js";
 import {rgbAt} from "../canvas/rgb-at.js";
 
-const CELL = 79;
+const LEFT_START = 40;
+const TOP_START = 416;
+const CELL = 79.3;
+
 const diffThreshold = 40;
 
 export function fieldGetCellValue(ctx, row, col) {
@@ -10,9 +13,9 @@ export function fieldGetCellValue(ctx, row, col) {
     const y0 = row * CELL;
 
     // 3 пикселя по диагонали внутри клетки (не у границ!)
-    const p1 = [x0 + CELL * 0.2, y0 + CELL * 0.08];
-    const p2 = [x0 + CELL * 0.5, y0 + CELL * 0.5];
-    const p3 = [x0 + CELL * 0.8, y0 + CELL * 0.9];
+    const p1 = [x0 + CELL * 0.3 + LEFT_START, y0 + CELL * 0.06 + TOP_START];
+    const p2 = [x0 + CELL * 0.5 + LEFT_START, y0 + CELL * 0.5 + TOP_START];
+    const p3 = [x0 + CELL * 0.7 + LEFT_START, y0 + CELL * 0.9 + TOP_START];
 
     const c1 = rgbAt(ctx, p1[0], p1[1]);
     const c2 = rgbAt(ctx, p2[0], p2[1]);
