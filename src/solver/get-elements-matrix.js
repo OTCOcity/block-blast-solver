@@ -8,6 +8,6 @@ export function getElementsMatrix(ctx) {
         elements.push(element);
         colors.push(color ? `rgb(${color[0]}, ${color[1]}, ${color[2]})` : 'blue');
     }
-    console.log(elements);
+    // console.log(elements);
     return {elements, colors};
 }

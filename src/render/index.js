@@ -9,7 +9,6 @@ const hint = $("hint");
 
 
 export const render = (store, prevStore) =>  {
-    console.log('Render', store, prevStore);
     // Подключили телефон по usb
     if (!prevStore.isPhoneConnected && store.isPhoneConnected) {
         btnStart.style.display = "none";
@@ -22,5 +21,9 @@ export const render = (store, prevStore) =>  {
     if (!prevStore.isPhoneConnectedError && store.isPhoneConnectedError) {
         btnStart.style.display = "block";
         hint.innerText = 'Произошла ошибка подключения, проверьте разрешения на телефоне';
+    }
+
+    if (!prevStore.isGameOver && store.isGameOver) {
+        hint.innerText = 'GAME OVER';
     }
 }

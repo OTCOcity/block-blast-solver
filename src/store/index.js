@@ -3,6 +3,7 @@ const store = {
     isPhoneConnected: false,
     isPhoneConnectedError: false,
     isFieldValid: false,
+    isGameOver: false,
 }
 
 let callback = null;
@@ -25,6 +26,5 @@ export const updateStore = (key, value) => {
 }
 
 export const getStoreField = (key) => {
-    console.log({...store})
     return store[key] ?? null;
 }

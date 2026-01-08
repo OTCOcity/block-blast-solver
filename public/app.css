@@ -34,7 +34,15 @@ body {
     position: absolute;
     z-index: 2;
     top: 0;
-    left: 0;
+    left: -300px;
+    width: 100%;
+    min-height: 100%;
+}
+
+.canvas-visible {
+    position: fixed;
+    z-index: 2;
+    top: 0;
     width: 100%;
     min-height: 100%;
 }

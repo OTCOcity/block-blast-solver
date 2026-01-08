@@ -25,6 +25,7 @@ export function renderShape(
 ) {
     const opacity = 0.95;
     const gap = 0;
+    console.log('renderShape', color);
 
     // Wrapper for the whole shape
     const wrap = document.createElement('div');

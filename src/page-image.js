@@ -37,7 +37,7 @@ btnStart.addEventListener("click", async () => {
 async function solve() {
     const field = await new Promise((resolve) => {
         setTimeout(() => {
-            resolve(getFieldMatrix(ctx));
+            resolve(getFieldMatrix(ctx).field);
         }, 600)
     });
     const {elements, colors} = await new Promise((resolve) => {
